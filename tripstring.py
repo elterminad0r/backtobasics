@@ -9,7 +9,7 @@ def f():
     print("f was called")
 
     """
-    print(this won't happen)
+    print("this won't happen")
     """
 
 if __name__ == "__main__":
