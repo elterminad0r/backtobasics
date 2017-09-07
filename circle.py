@@ -1,3 +1,8 @@
+"""
+importing functions! They're reusable.
+Print the area of a circle given a (sanitised) radius
+"""
+
 from validation import get_type
 from functions import get_area
 

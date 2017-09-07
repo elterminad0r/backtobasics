@@ -1,3 +1,7 @@
+"""
+Obtaining and working with string input
+"""
+
 name = input("What is your name?> ")
 
 print("Your name is {}".format(name))
