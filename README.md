@@ -12,4 +12,4 @@ Some Python basics should any of my one audience members wish to refer to them. 
 				 #if it all goes fine return the value (this breaks from the loop and function)
 				 return val
 
-Veel plezier : )
+Veel plezier `: )`
