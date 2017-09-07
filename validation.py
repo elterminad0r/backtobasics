@@ -35,6 +35,9 @@ def score_int(s):
         raise ValueError("Not in range 0-100")
     return val
 
+
+# We have to use this if statement so that this bit doesn't run if we import
+# it, but it will run if we call the script directly.
 if __name__ == "__main__":
     #print score
     score = get_type(score_int, "What did you get in the maths test? ")

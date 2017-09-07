@@ -28,6 +28,16 @@ def multiply(a, b=1):
 def divide(a=36, b=9):
     return a // b
 
+# You can also "collect" any extra arguments like this:
+def print_all(a, *args):
+    print("the first thing was {}".format(a))
+    for i in args:
+        print(i)
+
+# *args puts a list in args, so you could do something like this:
+def how_many(*args):
+    print("got {} thing{}".format(len(args), bool(len(args) - 1) * "s"))
+
 if __name__ == "__main__":
     add_up(1, 2, 3)
 
@@ -46,3 +56,12 @@ if __name__ == "__main__":
 
     # You can specify only one of the default arguments if you want
     print(divide(b=4))
+
+    print()
+
+    print_all(1, 2, 3, 4)
+
+    print()
+
+    how_many(1, 2, 3, 4, 5)
+    how_many(0)
