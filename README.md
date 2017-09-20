@@ -15,3 +15,5 @@ def get_type(ty, msg):
 ```
 
 Veel plezier `: )`
+
+Possibly in future featuring other languages.
