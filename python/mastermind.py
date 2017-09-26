@@ -45,9 +45,11 @@ def correct_digits(master, guess):
     # [(0, 'a'), (1, 'b'), (2, 'c')]
 
 
-    # zip zips two lists together - it lets you iterate in parallel
+    # zip zips multiple lists together - it lets you iterate in parallel
     # >>> list(zip("abc", "def"))
     # [('a', 'd'), ('b', 'e'), ('c', 'f')]
+    # >>> list(zip("abc", "def", "hij"))
+    # [('a', 'd', 'h'), ('b', 'e', 'i'), ('c', 'f', 'j')]
 
     # unpacking!! :D
     # >>> ind, (digit, mst_digit) = (0, ('a', 'd'))
