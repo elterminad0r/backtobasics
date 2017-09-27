@@ -1,1 +1,0 @@
-var foo = $("span.bstat_nc"); var x = foo.first().parent().parent().parent().parent(); if (x.attr("style") == "display: none;") {x.prev().click()}; foo.get(0).scrollIntoView(); foo.first().click(); setTimeout(function() { var btn = $("button.button-gray").last(); btn.get(0).scrollIntoView(); btn.click(); }, 500);
