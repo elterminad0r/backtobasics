@@ -23,6 +23,7 @@ while True:
     for validator in is_email, re_email, full_re:
 
         print(validator.__name__, end=" ")
+
         if validator(em):
             print("valid")
         else:
