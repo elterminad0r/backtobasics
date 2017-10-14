@@ -1,9 +1,13 @@
 \documentclass{article}
-\title{Treatise on the fundament of mathematics}
+\title{Some maths}
 \author{Izaak van Dongen}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{xspace}
 \begin{document}
+\maketitle
+Experimentations in \LaTeX\\
+
 I hereby decree the following:
 
 \begin{equation*}
@@ -56,10 +60,14 @@ I hereby decree the following:
 \delta \Delta
 \end{equation*}
 
-Let \begin{equation*}
-E = \frac{\sigma}{\epsilon}
-\end{equation*}
+Let \begin{align*}
+    E &= \frac{\sigma}{\epsilon}\\
+    \sigma &= \frac{F}{A}\\
+    \epsilon &= \frac{x}{l_0}\\
+    \Rightarrow E &= \frac{Fl_0}{Ax}
+\end{align*}
 
+Given that
 \begin{align*}
     n &= 2k + 1\\
     M &= n^{2}\\
