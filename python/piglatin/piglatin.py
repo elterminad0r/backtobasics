@@ -26,6 +26,11 @@ def sentence_latin(sent):
 #    for word in words:
 #        output.append(re_latin(word))
 
+#   return " ".join([re_latin(word) for word in sent.split()])
+#   return " ".join((re_latin(word) for word in sent.split()))
+#   return " ".join(re_latin(word) for word in sent.split())
+#   return " ".join(map(re_latin, sent.split()))
+
     return " ".join(output)
 
 #while True:
