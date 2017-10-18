@@ -15,11 +15,11 @@ digits = [("M", 1000),
           ("IV", 4),
           ("I", 1)]
 
-def get_numeral(n, digits=digits, index=0):
+def get_numeral(n, digits=digits):
     if n:
-        d, val = digits[index]
+        (d, val), *digits = digits
         q, r = divmod(n, val)
-        return "{}{}".format(d * q, get_numeral(r, digits, index + 1))
+        return "{}{}".format(d * q, get_numeral(r, digits))
     return ""
 
 MAX = 200
