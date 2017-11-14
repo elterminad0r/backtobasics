@@ -5,3 +5,4 @@ __pycache__/**
 bin
 *.aux
 *.log
+**/build/**
