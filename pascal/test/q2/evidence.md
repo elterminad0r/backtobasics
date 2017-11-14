@@ -4,8 +4,11 @@
 Evidence of testing:
 ![screenshot](https://github.com/elterminad0r/backtobasics/blob/be2f9ed608914456e9f635f131ae4276d89e4852/pascal/test/q2/testing_primes.png)
 
+This is a correct list of the primes less than 50 (verified by GHCi).
+
 Program source:
 
+```Pascal
     program PPrimes;
 
     var
@@ -25,3 +28,6 @@ Program source:
                 writeln(Count1);
         end;
     end.
+```
+
+To make this algorithm work up to a user-supplied upper bound, it would need to seek input from the user, and store this upper bound in a variable - maybe something like this:
