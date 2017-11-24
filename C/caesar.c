@@ -5,7 +5,7 @@ int caesar(int shift) {
     for (char c = getchar(); c != EOF; c = getchar()) {
         char strip_c = c & (0xFF - 32);
         if (('A' <= strip_c) && (strip_c <= 'Z')) {
-            printf("%c", (strip_c - 'A' + shift) % 26 + 'A');
+            printf("%c", ((strip_c - 'A' + shift) % 26 + 'A') | (c & 32));
         } else {
             printf("%c", c);
         }
