@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 int main() {
-    printf("'A' has ascii value %d\n", 'A');
+    char a  = 'A';
+    char a_ = "A"[0];
+    printf("'A' has ascii value %d (alternatively %d)\n", a, a_);
     return 0;
 }
 
