@@ -1,0 +1,26 @@
+"Procedural" focuses on sequential instructions.
+
+Declarative makes declarations and compiler relies on inference etc
+
+functional makes all data immutable and uses mathematically pure functions
+
+OOP is a paradigm focusing on data encapsulation.
+
+"what are the important things"
+
+what is an object?
+
+objects represent entities "things" relevant in the context of the problem.
+They can be anything.
+
+objects have:
+
+- attributes (fields, properties)
+- methods
+
+A board marker might have the attributes "colour", "nib type", "capacity",
+"remaining ink", "manufacturer", etc..  Attributes are accessed by dot-notation
+(like records) - board_marker.colour
+
+importantly objects do not just have data but also encapsulate behaviours in
+the form of methods (functions/procedures) - these are algorithms
