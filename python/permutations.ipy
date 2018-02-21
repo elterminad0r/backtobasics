@@ -1,0 +1,4 @@
+import itertools
+import sys
+
+%timeit list(itertools.permutations(sys.argv[1:]))
