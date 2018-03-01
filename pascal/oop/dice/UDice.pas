@@ -17,6 +17,7 @@ implementation
 constructor TDice.Create(numsides: integer);
 begin
     sides := numsides;
+    self.Roll();
 end;
 
 function TDice.GetValue: integer;

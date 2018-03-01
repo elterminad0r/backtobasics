@@ -6,4 +6,4 @@ class Die:
         self.sides = sides
 
     def roll(self):
-        self.value = randrange(1, 7)
+        self.value = randrange(1, sides + 1)

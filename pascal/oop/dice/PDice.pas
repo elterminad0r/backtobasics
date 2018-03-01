@@ -11,9 +11,11 @@ begin
     die.Roll;
 
     while true do begin
-        write(Format('Die shows %d - enter "roll" to roll > ', [die.GetValue]));
+        write(Format('Die shows %d - press enter to roll or "k" to keep > ', [die.GetValue]));
         readln(com);
-        if com = 'roll' then
+        if com <> 'k' then
             die.Roll;
     end;
+
+    die.Free;
 end.
