@@ -6,31 +6,44 @@ uses UCard, SysUtils;
 
 var
     card_pack: TPack;
-    card_a, card_b: TCard;
+    hand_a, hand_b: THand;
     a_score, b_score, i: integer;
-    cards_remain: boolean = true;
 
 begin
     a_score := 0;
     b_score := 0;
 
     card_pack := TPack.create;
+    hand_a := THand.create;
+    hand_b := THand.create;
 
-    while cards_remain do begin
-        if DEAL_FAIL in [card_pack.Deal(card_a), card_pack.Deal(card_b)] then begin
-            writeln('Deck is empty!');
-            cards_remain := false;
+    try
+        while true do begin
+            hand_a.AddCard(card_pack.Deal);
+            hand_b.AddCard(card_pack.Deal);
+        end;
+    except on E: ECardError do
+        writeln('Stopping dealing because: ', E.Message);
+    end;
+
+    writeln(Format('hand A: %s', [hand_a.Display]));
+    writeln(Format('hand B: %s', [hand_b.Display]));
+
+    writeln('Points being distributed:');
+
+    for i := 0 to hand_b.GetSize - 1 do begin
+        if hand_a.ViewCard(i).GetScore > hand_b.ViewCard(i).GetScore then begin
+            inc(a_score);
+            write('A');
         end else begin
-            write(format('cards drawn: A::%20s and B::%20s >> ', [card_a.getname, card_b.getname]));
-            if card_a.GetScore > card_b.GetScore then begin
-                inc(a_score);
-                writeln('Point for player A');
-            end else begin
-                inc(b_score);
-                writeln('Point for player B');
-            end;
+            inc(b_score);
+            write('B');
         end;
     end;
+
+    writeln;
     writeln(Format('Player A scored %d, player B scored %d', [a_score, b_score]));
     card_pack.free;
+    hand_a.free;
+    hand_b.free;
 end.
