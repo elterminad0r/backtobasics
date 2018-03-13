@@ -2,7 +2,7 @@
 
 program PSimpleCardGame;
 
-uses UCard, SysUtils;
+uses UCard, UHand, UPack, SysUtils;
 
 var
     card_pack: TPack;
