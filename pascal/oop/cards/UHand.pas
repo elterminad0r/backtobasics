@@ -10,7 +10,7 @@ type
     TKeyArray = array[0..51] of integer;
 
     type THand = class
-        private
+        protected 
             cards: TCardArray;
             size: integer;
             procedure Sort(cardbuf: TCardArray; keybuf, keys: TKeyArray; lower, upper: integer);
@@ -19,8 +19,11 @@ type
             constructor Create;
             function GetSize: integer;
             function Display: string;
-            procedure AddCard(card: TCard);
-            function Discard(i: integer): TCard;
+            procedure PushCard(card: TCard);
+            procedure InsertCard(card: TCard; i: integer);
+            function RemoveCard(i: integer): TCard;
+            function PopCard: TCard;
+            procedure ClearHand;
             function ViewCard(i: integer): TCard;
             function TopCard: TCard;
             procedure SwapCards(i, j: integer);
@@ -45,7 +48,7 @@ function THand.Display: string;
 var
     i: integer;
 begin
-    result := 'Pack(';
+    result := 'Hand(';
     if size > 0 then
         result := result + cards[0].GetShortName;
     for i := 1 to size - 1 do
@@ -53,7 +56,7 @@ begin
     result := result + ')';
 end;
 
-procedure THand.AddCard(card: TCard);
+procedure THand.PushCard(card: TCard);
 begin
     if size > 51 then
         raise ECardError.create('can''t add card to hand as it is full');
@@ -61,7 +64,7 @@ begin
     inc(size);
 end;
 
-function THand.Discard(i: integer): TCard;
+function THand.PopCard: TCard;
 begin
     if size = 0 then
         raise ECardError.create('can''t discard as hand is empty')
@@ -69,6 +72,37 @@ begin
         result := cards[size - 1];
         dec(size);
     end;
+end;
+
+procedure THand.ClearHand;
+begin
+    size := 0;
+end;
+
+procedure THand.InsertCard(card: TCard; i: integer);
+var
+    j: integer;
+begin
+    if size > 51 then
+        raise ECardError.create('can''t add card to hand as it is full');
+    if (i < 0) or (i >= size) then
+        raise ECardError.create('can''t add card, this is an invalid index');
+    for j := size downto i + 1 do
+        cards[j] := cards[j - 1];
+    cards[i] := card;
+    inc(size);
+end;
+
+function THand.RemoveCard(i: integer): TCard;
+begin
+    if size = 0 then
+        raise ECardError.create('can''t remove card, this hand is empty');
+    if (i < 0) or (i >= size) then
+        raise ECardError.create('can''t add card, this is an invalid index');
+    result := cards[i];
+    for i := i to size - 2 do
+        cards[i] := cards[i + 1];
+    dec(size);
 end;
 
 function THand.ViewCard(i: integer): TCard;

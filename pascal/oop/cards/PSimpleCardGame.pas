@@ -19,8 +19,8 @@ begin
 
     try
         while true do begin
-            hand_a.AddCard(card_pack.Deal);
-            hand_b.AddCard(card_pack.Deal);
+            hand_a.PushCard(card_pack.Deal);
+            hand_b.PushCard(card_pack.Deal);
         end;
     except on E: ECardError do
         writeln('Stopping dealing because: ', E.Message);
